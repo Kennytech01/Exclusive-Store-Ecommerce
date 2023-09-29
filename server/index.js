@@ -2,10 +2,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Product = require('./models/productModel')
 const port = 3000
+const cors = require('cors')
+
+
 
 //convert data in json fomart
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (req,res)=>{
     res.send('hello, we are here again!')
@@ -40,6 +44,7 @@ app.post('/product', async (req, res) =>{
 //     }
 // })
 
+// fetch all produts
 app.get('/products', async (req, res) => {
     try {
         const products = await Product.find({})
