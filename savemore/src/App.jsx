@@ -1,10 +1,25 @@
 import React from 'react';
-import { HomePage } from './HomePage';
+import { HomePage } from './Pages/HomePage';
+import { NavBar } from './navBar';
+import {Routes, Route, BrowserRouter} from 'react-router-dom'
+import { CreateProduct } from './Pages/CreateProduct';
+import { SignIn } from './Pages/SignIn';
+import { SignUp } from './Pages/SignUP';
+import { EditProduct } from './Pages/EditProduct';
 
 export const App = () => {
   return (
 <div>
-  <HomePage/> 
+  <BrowserRouter>
+    <NavBar/>
+    <Routes>
+      <Route index path='/' element={<HomePage/>}/>
+      <Route path='/createproduct' element={<CreateProduct/>}/>
+      <Route path='/signin' element={<SignIn/>}/>
+      <Route path='/signup' element={<SignUp/>}/>
+      <Route path='/editproduct' element={<EditProduct/>}/>
+    </Routes> 
+  </BrowserRouter>
 </div>
   )
 }
