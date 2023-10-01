@@ -1,14 +1,24 @@
-import React, { useState , useEffect} from 'react'
+import React, { useState , useEffect, useContext} from 'react'
 import axios from 'axios'
 import { Products } from '../Products'
 import bgImage from '../assets/images/bgImage.png'
-import ScrollAnimation from 'react-animate-on-scroll'
-import "animate.css/animate.min.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+// import { ProductContext } from '../context/ProductContext';
 
 
 export const HomePage = () => {
+    // const {pop} = useContext(ProductContext)
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+
+//     const [pop, setPop] = useState([])
+//     const [toggle, setToggle] = useState(false)
+
+//   const handleSubmit = () =>{
+//     setPop([product])
+//     setToggle(!toggle)
+//   }
 
     const getProducts = async () => {
         try {
@@ -27,28 +37,40 @@ export const HomePage = () => {
     useEffect(() => {
       getProducts()
     }, [])
+
+    useEffect(() => {
+      AOS.init({
+        // once: false,
+        // mirror: true
+        duration: 2000
+      })    
+    },[])
+    
     
   return (
     <div className=''>
         <div className='flex items-center h-[100vh] w-full bg-yellow-300'>
-            <span className='flex justify-s items-start'>
+            <span data-aos='fade-down' data-aos-easing='linear' className='flex justify-s items-start'>
                 <img className='h-full w-full object-contain' src={bgImage} alt=""  />
             </span>
             <div className='flex flex-col items-center'>
-                <ScrollAnimation animateIn='bounceIn' animateOut='bounceOut' className='font-bold text-4xl p-5 right-1/3 flex justify-end text-stone-800'>
+                <div 
+                    data-aos="fade-up" 
+                    data-aos-duration='3000'
+                    data-aos-once = "false"
+                    className='font-bold text-4xl p-5 right-1/3 flex justify-end text-stone-800 bg-gradient-to-tr bg-clip-text text-transparent from-[#f9ee14] to-[#077b19]'>
                     Welcome to Admin Dashboard!
-                </ScrollAnimation>
-                <ScrollAnimation animateIn='bounceInRight' animateOut='bounceOutLeft' className='p-5'>
-                    <p className='flex items-center text-xl'>You can add, delete and create new product here. <a href='#products' className='hover:underline underline-offset-2 cursor-pointer font-bold text-blue-500'>start now!</a> </p>
-                </ScrollAnimation>
+                </div>
+                <div className='p-5' data-aos="zoom-out-left">
+                    <p className='flex items-center text-xl'>You can add, delete and create new product here. <a href='#products' data-aos="flip-up" className='hover:underline underline-offset-2 cursor-pointer font-bold text-blue-500'>start now!</a> </p>
+                </div>
             </div>
         </div>
-        <ScrollAnimation animateIn='wobble' 
-            initiallyVisible={true}>
-            <h1 className='p-4 font-bold text-center text-3xl text-orange-500'>
+        <div>
+            <h1 data-aos="fade-up" data-aos-duration="3000" className='p-4 font-bold text-center text-3xl text-orange-500'>
                 List of Products...
             </h1>
-        </ScrollAnimation>
+        </div>
         <div id='products' className='flex justify-center items-center m-2'>
             {
                 isLoading ? (
@@ -61,7 +83,7 @@ export const HomePage = () => {
                             products.length > 0 ? (
                                 products.map((product, index) => {
                                     return(
-                                    <Products key={index} product={product}/>
+                                        <Products key={index} product={product} getProducts={getProducts}/>
                                     )
                                 })
                             )
@@ -77,3 +99,17 @@ export const HomePage = () => {
     </div>
   )
 }
+ {/* <div>
+    {
+        pop.map((poping)=> {
+        return (
+            <div className='fixed top-0 left-0 right-0 flex justify-center items-center h-screen'>
+            <div className='bg-black/20 absolute right-0 top-0 left-0'></div>
+            <div className='bg-white h-full '>
+                <h1>{poping.name}</h1>
+            </div>
+            </div>
+        )
+        })
+    }
+</div> */}

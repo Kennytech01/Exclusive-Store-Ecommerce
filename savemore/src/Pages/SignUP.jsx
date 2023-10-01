@@ -14,7 +14,7 @@ export const SignUp = () => {
             </Link>
             <div className='bg-white rounded-xl w-full text-center shadow-xl border'>
                 <div className='m-5 relative'>
-                    <p className=' font-bold text-3xl bg-gradient-to-tr bg-clip-text text-transparent from-[#781d75] to-[#EC094D] text-center'>SimpleStore</p>
+                    <p className=' font-bold text-3xl bg-gradient-to-tr bg-clip-text text-transparent to-[#f9ee14] from-green-500 text-center'>SimpleStore</p>
                 </div>
                 <h1 className='font-bold text-xl p-3 text-cente'>Register!</h1>
                 <h4 className='sign text-lg p-2 text-center'>Get access to admins only content.</h4>
@@ -27,12 +27,12 @@ export const SignUp = () => {
                             <input type="email" name="" id="" className='w-full border p-3 px-3 rounded-full outline-none' placeholder='Your email address' />
                         </div>
                         <div className='p-3 flex justify-center  '>
-                            <button type="submit" value='submit' className='submit w-full p-3 font-semibold rounded-full hover:scale-95 transition-all ease-out duration-500 bg-[#781d75] text-stone-100 '>Send login link</button>
+                            <button type="submit" value='submit' className='submit w-full p-3 font-semibold rounded-full hover:scale-95 transition-all ease-out duration-500 bg-green-500 text-stone-100 '>Send login link</button>
                         </div>
                     </form>
                 </div>
                 <p className='p-5'>
-                    Already have an account? <Link to='/signin' className='hover:underline text-[#781d75] font-bold'>signIn</Link>
+                    Already have an account? <Link to='/signin' className='hover:underline text-[#47c073] font-bold'>signIn</Link>
                 </p>
             </div>
         </div>

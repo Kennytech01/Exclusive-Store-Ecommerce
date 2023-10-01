@@ -15,7 +15,7 @@ export const SignIn = () => {
             </Link>
             <div className='bg-white rounded-xl w-full text-center shadow-xl border'>
                 <div className='m-5 relative'>
-                    <p className=' font-bold text-3xl bg-gradient-to-tr bg-clip-text text-transparent from-[#781d75] to-[#EC094D] text-center'>SimpleStore</p>
+                    <p className=' font-bold text-3xl bg-gradient-to-tr bg-clip-text text-transparent to-[#f9ee14] from-green-500 text-center'>SimpleStore</p>
                 </div>
                 <h1 className='font-bold text-xl p-5 text-cente'>Welcome Back!</h1>
                 <h4 className='sign text-lg p-2 text-center '>Sign in into your account for full access</h4>
@@ -25,12 +25,12 @@ export const SignIn = () => {
                             <input type="email" name="" required id="Email" autoFocus className=' w-full border p-3 px-3 rounded-full outline-none' placeholder='Your email address' />
                         </div>
                         <div  className='p-3 flex justify-center'>
-                            <button type="submit" value='submit' onClick={()=>verify()} className='submit w-full p-3 font-semibold rounded-full hover:scale-95 ease-out duration-500 bg-[#781d75] text-stone-100 '>Send login link</button>
+                            <button type="submit" value='submit' onClick={()=>verify()} className='submit w-full p-3 font-semibold rounded-full hover:scale-95 ease-out duration-500 bg-green-500 text-stone-100 '>Send login link</button>
                         </div>
                     </form>
                 </div>
                 <p className='p-5'>
-                    Already have an account? <Link to='/signup' className='hover:underline text-[#781d75] font-bold'>signUp</Link>
+                    Already have an account? <Link to='/signup' className='hover:underline text-green-500 font-bold'>signUp</Link>
                 </p>
             </div>
         </div>

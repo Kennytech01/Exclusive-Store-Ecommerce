@@ -6,6 +6,8 @@ import { CreateProduct } from './Pages/CreateProduct';
 import { SignIn } from './Pages/SignIn';
 import { SignUp } from './Pages/SignUP';
 import { EditProduct } from './Pages/EditProduct';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   return (
@@ -20,6 +22,7 @@ export const App = () => {
       <Route path='/editproduct' element={<EditProduct/>}/>
     </Routes> 
   </BrowserRouter>
+  <ToastContainer />
 </div>
   )
 }
