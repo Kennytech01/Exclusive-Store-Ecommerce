@@ -19,7 +19,7 @@ export const App = () => {
       <Route path='/createproduct' element={<CreateProduct/>}/>
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/signup' element={<SignUp/>}/>
-      <Route path='/editproduct' element={<EditProduct/>}/>
+      <Route path='/editproduct/:id' element={<EditProduct/>}/>
     </Routes> 
   </BrowserRouter>
   <ToastContainer />

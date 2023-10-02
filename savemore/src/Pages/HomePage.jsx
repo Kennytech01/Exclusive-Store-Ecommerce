@@ -12,21 +12,13 @@ export const HomePage = () => {
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
-//     const [pop, setPop] = useState([])
-//     const [toggle, setToggle] = useState(false)
-
-//   const handleSubmit = () =>{
-//     setPop([product])
-//     setToggle(!toggle)
-//   }
 
     const getProducts = async () => {
         try {
             setIsLoading(true)
             const response = await axios.get("http://localhost:3000/products/")
-            console.log(response.data)
+            // console.log(response.data)
             setProducts(response.data )
-            // res.status(200).json(response.data)
             setIsLoading(false)
 
         } catch (error) {
@@ -58,7 +50,7 @@ export const HomePage = () => {
                     data-aos="fade-up" 
                     data-aos-duration='3000'
                     data-aos-once = "false"
-                    className='font-bold text-4xl p-5 right-1/3 flex justify-end text-stone-800 bg-gradient-to-tr bg-clip-text text-transparent from-[#f9ee14] to-[#077b19]'>
+                    className='font-bold text-4xl p-5 right-1/3 flex justify-end text-stone-800'>
                     Welcome to Admin Dashboard!
                 </div>
                 <div className='p-5' data-aos="zoom-out-left">
@@ -68,7 +60,7 @@ export const HomePage = () => {
         </div>
         <div>
             <h1 data-aos="fade-up" data-aos-duration="3000" className='p-4 font-bold text-center text-3xl text-orange-500'>
-                List of Products...
+                Products in Stock
             </h1>
         </div>
         <div id='products' className='flex justify-center items-center m-2'>
@@ -99,17 +91,4 @@ export const HomePage = () => {
     </div>
   )
 }
- {/* <div>
-    {
-        pop.map((poping)=> {
-        return (
-            <div className='fixed top-0 left-0 right-0 flex justify-center items-center h-screen'>
-            <div className='bg-black/20 absolute right-0 top-0 left-0'></div>
-            <div className='bg-white h-full '>
-                <h1>{poping.name}</h1>
-            </div>
-            </div>
-        )
-        })
-    }
-</div> */}
+ 
