@@ -31,17 +31,42 @@ export const Products = ({product, getProducts}) => {
     }
   }
 
+  // modal display
+  // const productDetail = async (id) => {
+  //   const result  = await Swal.fire({
+  //     title: 'Sweet!',
+  //     text: 'Modal with a custom image.',
+  //     imageUrl: `${product.image}`,
+  //     imageWidth: 400,
+  //     imageHeight: 200,
+  //     imageAlt: 'image',
+  //     objectFit: 'cover'
+  //   })
+  //   try {
+  //     await axios.get(`http://localhost:3000/products/${id}`)
+
+  //   } catch (error) {
+  //     console.log(error.message)      
+  //   }
+  // }
+
   return (
-    <div>
-      <div data-aos="fade-in-out" data-aos-duration="3000" className=' h-80 w-80 flex justify-center items-center flex-col bg-white shadow'>
-        <img src={product.image} alt="" className='flex h-1/2 w-full object-contain' />
+      <div 
+        // onClick={() => productDetail(product._id)}
+        data-aos="fade-up" 
+        data-aos-duration="2000" 
+        className=' h-80 w-80 flex justify-center items-center flex-col bg-white shadow'>
+        <div className='flex h-1/2 relative'>
+          <span className='absolute right-2 bg-orange-600 text-white rounded text-sm px-1'>{product.percentage}%</span>
+          <img src={product.image} alt="" className='w-full object-contain' />
+        </div>
         <h1 className='font-bold p-2 capitalize'>{product.name}</h1>
         <div className='flex items-center justify-between w-full p-2'>
           <p className=' w-full flex items-center'>
-            <span className='flex items-center'><TbCurrencyNaira/>{product.price.toLocaleString()}</span>
-            <span className='ml-2 line-through flex items-center text-[#f33f0df3] text-stone-400'><TbCurrencyNaira />{product.oldprice.toLocaleString()}</span>
+            <span className='flex items-center text-sm font-bold '><TbCurrencyNaira className='mt-1'/>{product.price.toLocaleString()}</span>
+            <span className='ml-2 line-through flex items-center text-[#f33f0df3] text-stone-400 text-sm '><TbCurrencyNaira className='mt-1'/>{product.oldprice.toLocaleString()}</span>
           </p>
-          <p className='flex items-center'><span className='text-stone-500 '>avaliable:</span> {product.quantity.toLocaleString()}</p>
+          <p className='flex items-center'><span className='text-stone-500 '>Avaliable:</span> {product.quantity.toLocaleString()}</p>
         </div>
         <div className='w-full flex justify-between items-center px-2'>
           <Link to={`/editproduct/${product._id}`}>
@@ -50,6 +75,5 @@ export const Products = ({product, getProducts}) => {
           <button onClick={()=> deleteProduct(product._id)} className='bg-orange-500 text-stone-100 px-2 p-1 rounded'>Delete</button>
         </div>
       </div>
-    </div>
   )
 }
