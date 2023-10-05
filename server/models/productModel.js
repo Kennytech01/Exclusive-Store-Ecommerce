@@ -6,10 +6,6 @@ const ProductSchema = mongoose.Schema(
             type: String,
             required: [true, `Please enter product name`]
         },
-        id: {
-            type: Number,
-            required: true
-        },
         quantity: {
             type: Number,
             required: true,
@@ -31,10 +27,6 @@ const ProductSchema = mongoose.Schema(
             type: Number,
             required: false,
         },
-        // stock: {
-        //     type: Number,
-        //     required: true,
-        // },
         image: {
             type: String,
             required: false,
