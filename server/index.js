@@ -14,12 +14,14 @@ app.use(express.json())
 app.use(cors())
 
 //routes
-app.use('/api', productRoute)
+app.use('/api/products', productRoute)
 
-app.get('/api', (req,res)=>{
+app.get('/', (req,res)=>{
+    // throw new Error('fakeError')
     res.send('hello, we are here again!')
 })
 
+// connect to database
 mongoose.connect(MONGO_URL)
 .then(()=>{
     console.log('connected to savemoreAPI')

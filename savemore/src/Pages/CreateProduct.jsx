@@ -34,7 +34,7 @@ export const CreateProduct = () => {
 
         try {
             setIsLoading(true)
-            const response = await axios.post('http://localhost:3000/products/',{name:name, quantity:quantity, price:price, image:image, oldprice: oldPrice, category: category, percentage: percentage})
+            const response = await axios.post('http://localhost:3000/api/products/',{name:name, quantity:quantity, price:price, image:image, oldprice: oldPrice, category: category, percentage: percentage})
             toast.success(`${response.data.name} have been added successfully`)
             setIsLoading(false)
             navigate('/')
