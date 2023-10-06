@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import {PiToggleRightDuotone} from 'react-icons/pi'
 import {PiToggleLeftDuotone} from 'react-icons/pi'
+import {toast} from 'react-toastify'
 
 
 export const HomePage = () => {
@@ -25,7 +26,9 @@ export const HomePage = () => {
             setIsLoading(false)
 
         } catch (error) {
+            setIsLoading(false)
             console.log(error)
+            toast.error(error.message)
         }
     }
 
@@ -69,7 +72,7 @@ export const HomePage = () => {
             <h1 data-aos="fade-up" data-aos-duration="3000" className='p-4 font-bold text-center text-3xl text-orange-500 '>
                 Products in Stock
             </h1>
-            <div onClick={handleClick} className='p-2 md:p-5 md:mx-10 flex items-center  cursor-pointer'>
+            <div onClick={handleClick} className='p-2 md:p-5 md:mx-10 flex items-center cursor-pointer'>
                 {
                     toggle? 
                     (< PiToggleRightDuotone 
@@ -85,11 +88,11 @@ export const HomePage = () => {
         <div id='products' className='flex justify-center items-center m-2'>
             {
                 isLoading ? (
-                    <span>Loading!</span>
+                    <span className='flex justify-center items-center'>Loading!</span>
                 )
                 :
                 (
-                   <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2'>
+                   <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4'>
                         {
                             products.length > 0 ? (
                                 products.map((product, index) => {
@@ -100,7 +103,7 @@ export const HomePage = () => {
                             )
                             :
                             (
-                                <div>There is no product</div>
+                                <div className='flex justify-center items-center'>There is no product</div>
                             )
                         }
                    </div> 
