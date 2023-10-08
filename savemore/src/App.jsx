@@ -8,6 +8,7 @@ import { SignUp } from './Pages/SignUP';
 import { EditProduct } from './Pages/EditProduct';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Footer } from './Pages/Footer';
 
 export const App = () => {
   return (
@@ -21,6 +22,7 @@ export const App = () => {
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/editproduct/:id' element={<EditProduct/>}/>
     </Routes> 
+    <Footer/>
   </BrowserRouter>
   <ToastContainer />
 </div>

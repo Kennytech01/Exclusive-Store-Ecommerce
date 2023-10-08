@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useContext, useState } from 'react'
+import React, { useState  } from 'react'
 import {TbCurrencyNaira} from 'react-icons/tb'
 import { Link } from 'react-router-dom' 
 import { toast } from 'react-toastify'
@@ -13,7 +13,7 @@ export const Products = ({product, getProducts}) => {
       title: "<p class='text-black text-xl'>Do you really want to delete this Product?</p>",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#f97316',
+      confirmButtonColor: '#EF4444',
       cancelButtonColor: '#22c55e',
       focusCancel: true,
       cancelButtonText: "<p class='font-bold'>Cancel!</p>",
@@ -51,16 +51,15 @@ export const Products = ({product, getProducts}) => {
   // }
 
   return (
-      <div 
-        // onClick={() => productDetail(product._id)}
+      <div
         data-aos="fade-up" 
-        data-aos-duration="2000" 
-        className=' h-80 w-80 flex justify-center items-center flex-col bg-white shadow'>
+        data-aos-duration="1500" 
+        className=' h-80 w-80 mx-h-96 min-w-96 flex justify-center items-center flex-col bg-white shadow'>
         <div className='flex h-1/2 relative'>
-          <span className='absolute right-2 bg-orange-600 text-white rounded text-sm px-1'>{product.percentage}%</span>
+          <span className='absolute right-2 bg-green-400 text-white font-light rounded text-sm px-1'>{product.percentage}%</span>
           <img src={product.image} alt="" className='w-full object-contain' />
         </div>
-        <h1 className='font-bold p-2 capitalize'>{product.name}</h1>
+        <h1 className='font-bold p-2 capitalize flex flex-wrap'>{product.name}</h1>
         <div className='flex items-center justify-between w-full p-2'>
           <p className=' w-full flex items-center'>
             <span className='flex items-center text-sm font-bold '><TbCurrencyNaira className='mt-1'/>{product.price.toLocaleString()}</span>
@@ -72,7 +71,7 @@ export const Products = ({product, getProducts}) => {
           <Link to={`/editproduct/${product._id}`}>
             <button className='bg-green-500 text-stone-100 px-2 p-1 rounded flex'>Edit</button>
           </Link>
-          <button onClick={()=> deleteProduct(product._id)} className='bg-orange-500 text-stone-100 px-2 p-1 rounded'>Delete</button>
+          <button onClick={()=> deleteProduct(product._id)} className='bg-red-500 text-stone-100 px-2 p-1 rounded'>Delete</button>
         </div>
       </div>
   )

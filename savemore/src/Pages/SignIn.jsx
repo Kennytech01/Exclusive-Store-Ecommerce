@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {MdKeyboardDoubleArrowLeft} from 'react-icons/md'
+import logo from '../assets/images/logo.png'
 
 export const SignIn = () => {
     
@@ -14,8 +15,8 @@ export const SignIn = () => {
                 </button>
             </Link>
             <div className='bg-white rounded-xl w-full text-center shadow-xl border'>
-                <div className='m-5 relative'>
-                    <p className=' font-bold text-3xl bg-gradient-to-tr bg-clip-text text-transparent to-[#f9ee14] from-green-500 text-center'>SimpleStore</p>
+                <div className='m-5 relative flex justify-center'>
+                    <img src={logo} alt="image" className='w-28 h-20 object-contain cursor-pointer' />
                 </div>
                 <h1 className='font-bold text-xl p-5 text-cente'>Welcome Back!</h1>
                 <h4 className='sign text-lg p-2 text-center '>Sign in into your account for full access</h4>
