@@ -1,34 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {MdKeyboardDoubleArrowLeft} from 'react-icons/md'
 import logo from '../assets/images/logo.png'
+import AOS from "aos";
 
 export const SignUp = () => {
+    const [data, setData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    })
+
+    const signupUser = (e)=>{
+     e.preventDefault()
+    }
+
+
   return (
     <div className='flex  justify-center items-center h-[100vh]'>
-        <div className='md:w-1/3 sm:w-2/3 w-[90%] mx-1/2 '>
+        <div className='md:w-1/2 sm:w-2/3 w-[90%] mx-1/2 '>
             <Link to= '/' className='flex justify-center items-center m-3 group'>
                 <button 
                     className='p-3 border bg-white flex items-center justify-center font-semibold rounded-full group-hover:scale-110 ease-out duration-500'>
                     <MdKeyboardDoubleArrowLeft size={30}/>
                 </button>
             </Link>
-            <div className='bg-white rounded-xl w-full text-center shadow-xl border'>
+            <div  data-aos="fade-up" data-aos-duration='1500' className='bg-white rounded-xl w-full text-center shadow-xl border'>
                 <div className='m-5 relative flex justify-center'>
                     <img src={logo} alt="image" className='w-28 h-20 object-contain cursor-pointer' />
                 </div>
-                <h1 className='font-bold text-xl p-3 text-cente'>Register!</h1>
-                <h4 className='sign text-lg p-2 text-center'>Get access to admins only content.</h4>
+                <h1 className='font-bold text-xl p-3 text-cente'>Sign up! as Admin</h1>
+                <h4 className='sign text-lg p-2 text-center'>Get access to admins  content.</h4>
                 <div className='mx-5'>
-                    <form action="" method="post" >
+                    <form onSubmit={signupUser} >
                         <div className='p-2'>
-                            <input type="text" name="" id="" className='w-full border p-3 rounded-full outline-none' autoFocus placeholder='Your name' />
+                            <input type="text" value={data.name} onChange={(e)=> setData({...data, name: e.target.value})} className='w-full border p-3 rounded-full outline-none' autoFocus placeholder='Enter your name' />
                         </div>
                         <div className='p-2'>
-                            <input type="email" name="" id="" className='w-full border p-3 px-3 rounded-full outline-none' placeholder='Your email address' />
+                            <input type="email" value={data.email} onChange={(e)=> setData({...data, email: e.target.value})} className='w-full border p-3 px-3 rounded-full outline-none' placeholder=' Enter email address' />
+                        </div>
+                        <div className='p-2'>
+                            <input type="password" value={data.password} onChange={(e)=> setData({...data, password: e.target.value})}  className='w-full border p-3 px-3 rounded-full outline-none' placeholder='create a password' />
                         </div>
                         <div className='p-3 flex justify-center  '>
-                            <button type="submit" value='submit' className='submit w-full p-3 font-semibold rounded-full hover:scale-95 transition-all ease-out duration-500 bg-green-500 text-stone-100 '>Send login link</button>
+                            <button type="submit" value='submit' className='submit w-full p-3 font-semibold rounded-full hover:scale-95 transition-all ease-out duration-500 bg-green-500 text-stone-100 '>Sign up</button>
                         </div>
                     </form>
                 </div>

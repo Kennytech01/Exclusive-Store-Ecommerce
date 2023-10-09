@@ -1,5 +1,10 @@
 const express = require('express')
-const { createProduct, deleteProduct, updateProduct, getProducts, singleProduct } = require('../controller/productController')
+const { 
+    createProduct, 
+    deleteProduct, 
+    updateProduct, 
+    getProducts, 
+    singleProduct } = require('../controller/productController')
 const router = express.Router()
 
 // create product in database

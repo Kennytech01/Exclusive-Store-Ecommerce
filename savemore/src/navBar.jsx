@@ -25,9 +25,9 @@ export const NavBar = () => {
 
 
   return (
-    <div className={`${isActive ? 'sticky top-0 bg-[#22C55E] z-10' : 'bg-[#22C55E]/70'} flex justify-between items-center h-20 px-5  shadow-inner text-stone-800 `}>
+    <div className={`${isActive ? 'sticky top-0 bg-green-400 z-10' : 'bg-[#22C55E bg-white '}  flex justify-between items-center h-20 px-5  shadow-inner text-stone-800 `}>
         <Link to='/' className=''>
-          <img src={logo} alt="image" className='w-28 h-20 object-contain cursor-pointer' />
+          <img onClick={()=> location.reload()} src={logo} alt="image" className='w-28 h-20 object-contain cursor-pointer' />
         </Link >
         <div className={`h-1/2 w-96 hidden lg:flex top-0 `}>
           <input type="search" name="search" id="" placeholder='Type your search...' className=' bg-stone-100 w-full h-full px-2 rounded outline-none transition-all duration-1000' />
@@ -36,7 +36,7 @@ export const NavBar = () => {
             <Link to={`/createproduct`}>
                 <button className='p-2 mx-2 text-green-400 font-bold rounded bg-white shadow '>Add New Product</button>
             </Link>
-            <Link to='/signin' className='flex items-center ml-5 font-bold text-white hover:text-green-400'>
+            <Link to='/signin' className={`flex items-center ml-5 font-bold text-stone-800 ${isActive && 'text-white font-bold'}`}>
                 Account 
                 <LiaUserCircleSolid className='mt-1'/>
             </Link>
