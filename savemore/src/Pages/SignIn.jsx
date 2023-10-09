@@ -6,8 +6,8 @@ import logo from '../assets/images/logo.png'
 export const SignIn = () => {
     
   return (
-    <div className='flex  justify-center items-center h-[100vh]'>
-        <div className='md:w-1/3 sm:w-2/3 w-[90%] mx-1/2'>
+    <div className='flex  justify-center items-center h-[90vh]'>
+        <div className='md:w-1/2 sm:w-2/3 w-[90%] mx-1/2'>
             <Link to= '/' className='flex justify-center items-center m-3 group'>
                 <button 
                     className='p-3 border bg-white flex items-center justify-center font-semibold rounded-full group-hover:scale-110 ease-out duration-500'>

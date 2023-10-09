@@ -50,7 +50,7 @@ export const HomePage = () => {
 
   return (
     <div className=''>
-        <div className='flex items-center justify-start h-[50vh] md:h-[70vh] lg:h-[90vh] w-full relative bg-white' >
+        <div className='flex items-center justify-start h-[40vh] md:h-[50vh] lg:h-[90vh] w-full relative bg-white' >
             <div data-aos='fade-down' data-aos-easing='linear' className=' h-80 flex flex-col items-center absolute ld:right-4 -right-10 md:right-20 md:block transition-all duration-300'>
                 <img className='sm:object-cover object-contain h-full w-full object-center' src={background} alt="" />
             </div>
@@ -95,7 +95,7 @@ export const HomePage = () => {
                 )
                 :
                 (
-                   <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4'>
+                   <div className='grid lg:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-4 lg:gap-6'>
                         {
                             products.length > 0 ? (
                                 products.map((product, index) => {

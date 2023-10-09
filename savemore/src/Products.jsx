@@ -56,7 +56,7 @@ export const Products = ({product, getProducts}) => {
         data-aos-duration="1500" 
         className=' h-80 w-80 mx-h-96 min-w-96 flex justify-center items-center flex-col bg-white shadow'>
         <div className='flex h-1/2 relative'>
-          <span className='absolute right-2 bg-green-400 text-white font-light rounded text-sm px-1'>{product.percentage}%</span>
+          <span className='absolute right-2 bg-orange-400 text-white font-light rounded text-sm px-1'>{product.percentage}%</span>
           <img src={product.image} alt="" className='w-full object-contain' />
         </div>
         <h1 className='font-bold p-2 capitalize flex flex-wrap'>{product.name}</h1>
