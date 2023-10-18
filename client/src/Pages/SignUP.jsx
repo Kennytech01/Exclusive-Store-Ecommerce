@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {MdKeyboardDoubleArrowLeft} from 'react-icons/md'
 import logo from '../assets/images/logo.png'
@@ -11,13 +11,21 @@ export const SignUp = () => {
         password: ''
     })
 
+        //refresh AOS
+        useEffect(() => {
+            AOS.init({
+              duration: 2000
+            })    
+          },[])
+
     const signupUser = (e)=>{
      e.preventDefault()
     }
 
 
   return (
-    <div className='flex  justify-center items-center h-[100vh]'>
+    <div className='flex  justify-center items-center max-h-screen h-full'>
+        <div className='bg-stone-100 fixed top-0 right-0 left-0  h-full -z-10 blur'></div>
         <div className='md:w-1/2 sm:w-2/3 w-[90%] mx-1/2 '>
             <Link to= '/' className='flex justify-center items-center m-3 group'>
                 <button 
@@ -25,7 +33,7 @@ export const SignUp = () => {
                     <MdKeyboardDoubleArrowLeft size={30}/>
                 </button>
             </Link>
-            <div  data-aos="fade-up" data-aos-duration='1500' className='bg-white rounded-xl w-full text-center shadow-xl border'>
+            <div  data-aos="fade-up" data-aos-duration='1500' className='bg-white rounded-xl w-full text-center shadow-xl border h-full'>
                 <div className='m-5 relative flex justify-center'>
                     <img src={logo} alt="image" className='w-28 h-20 object-contain cursor-pointer' />
                 </div>

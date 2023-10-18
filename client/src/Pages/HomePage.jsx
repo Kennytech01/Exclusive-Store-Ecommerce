@@ -7,16 +7,13 @@ import "aos/dist/aos.css";
 import {PiToggleRightDuotone} from 'react-icons/pi'
 import {PiToggleLeftDuotone} from 'react-icons/pi'
 import {toast} from 'react-toastify'
-import bgImage from '../assets/images/bgImage.png'
 
 export const HomePage = () => {
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [toggle, setToggle] = useState(false)
 
-
- 
-
+    //get products from api
     const getProducts = async () => {
         try {
             setIsLoading(true)
@@ -36,6 +33,7 @@ export const HomePage = () => {
       getProducts()
     }, [])
 
+    //refresh AOS
     useEffect(() => {
       AOS.init({
         duration: 2000
@@ -50,11 +48,11 @@ export const HomePage = () => {
 
   return (
     <div className=''>
-        <div className='flex items-center justify-start h-[40vh] md:h-[50vh] lg:h-[90vh] w-full relative bg-white' >
+        <div className=' flex items-center justify-start h-[40vh] md:h-[50vh] lg:h-[90vh] w-full relative bg-white' >
             <div data-aos='fade-down' data-aos-easing='linear' className=' h-80 flex flex-col items-center absolute ld:right-4 -right-10 md:right-20 md:block transition-all duration-300'>
                 <img className='sm:object-cover object-contain h-full w-full object-center' src={background} alt="" />
             </div>
-            <div className='flex flex-col items-center'>
+            <div className=' flex flex-col items-center'>
                 <div 
                     data-aos="fade-up" 
                     data-aos-duration='3000'

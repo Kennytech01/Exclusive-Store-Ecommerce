@@ -55,3 +55,5 @@ userSchema.statics.signup = async function(email, password) {
 // export userModel
 const User = mongoose.model('User', userSchema)
 module.exports = User
+
+
