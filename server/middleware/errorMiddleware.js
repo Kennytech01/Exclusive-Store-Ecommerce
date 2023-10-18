@@ -1,9 +1,14 @@
 const errorMiddleware = (err, req, res, next) => {
-    console.log('Here is an error middlewire')
+    // console.log('Here is an error middlewire')
     
-    const statusCode = res.statusCode ? res.statusCode : 500;
-    res.status(statusCode)
-    res.json({message: err.message, stack: process.env.NODE_ENV === 'development' ? err.stack : null})
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'internal server error'
+    return res.status(statusCode).json(
+        {
+            success: false,
+            message,
+            statusCode
+        })
 }
 
-module.exports = errorMiddleware
+export default errorMiddleware

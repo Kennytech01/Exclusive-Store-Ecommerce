@@ -16,7 +16,7 @@ export const SignIn = () => {
     
   return (
     <div className='flex  justify-center items-center h-[90vh]'>
-        <div className='md:w-1/2 sm:w-2/3 w-[90%] mx-1/2'>
+        <div className='md:w-[40%] sm:w-2/3 w-[90%] mx-auto'>
             <Link to= '/' className='flex justify-center items-center m-3 group'>
                 <button 
                     className='p-3 border bg-white flex items-center justify-center font-semibold rounded-full group-hover:scale-110 ease-out duration-500'>

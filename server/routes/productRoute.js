@@ -1,10 +1,10 @@
-const express = require('express')
-const { 
+import express from 'express'
+import { 
     createProduct, 
     deleteProduct, 
     updateProduct, 
     getProducts, 
-    singleProduct } = require('../controller/productController')
+    singleProduct } from '../controller/productController.js'
 const router = express.Router()
 
 // create product in database
@@ -22,4 +22,4 @@ router.get('/', getProducts);
 //fetch single product
 router.get('/:id', singleProduct);
 
-module.exports = router
+export default router

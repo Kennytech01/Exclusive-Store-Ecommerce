@@ -1,5 +1,5 @@
-const Product = require('../models/productModel')
-const asyncHandler = require('express-async-handler')
+import Product from '../models/productModel.js'
+import asyncHandler from 'express-async-handler'
 
 //create product 
 const createProduct = asyncHandler(async (req, res) =>{
@@ -73,7 +73,7 @@ const singleProduct = asyncHandler(async (req, res) => {
 })
 
 
-module.exports = {
+export {
     createProduct,
     deleteProduct,
     updateProduct,

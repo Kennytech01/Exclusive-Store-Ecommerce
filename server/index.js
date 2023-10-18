@@ -1,10 +1,12 @@
-require('dotenv').config()
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const productRoute = require('./routes/productRoute')
-const errorMiddleware = require('./middleware/errorMiddleware')
-const userRoute = require('./routes/userRoute')
+import express from 'express'
+import mongoose from 'mongoose'
+import cors from 'cors'
+import dotenv from 'dotenv'
+dotenv.config()
+import errorMiddleware from './middleware/errorMiddleware.js'
+import productRoute from './routes/productRoute.js'
+import authRoute from './routes/authRoute.js'
+
 
 // console.log(process.env)
 const PORT = process.env.PORT || 3000
@@ -23,14 +25,17 @@ app.use(cors(corsOptions))
 
 //routes
 app.use('/api/products', productRoute)
-app.use('/api/user', userRoute)
-
-app.get('/', (req,res)=>{
-    // throw new Error('fakeError')
-    res.send('hello, we are here again!')
-})
-
+app.use('/api/auth', authRoute)
 app.use(errorMiddleware)
+
+
+
+// app.get('/', (req,res)=>{
+//     // throw new Error('fakeError')
+//     res.send('hello, we are here again!')
+// })
+
+
 
 // connect to database
 mongoose.connect(MONGO_URL)
