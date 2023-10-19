@@ -29,14 +29,6 @@ app.use('/api/auth', authRoute)
 app.use(errorMiddleware)
 
 
-
-// app.get('/', (req,res)=>{
-//     // throw new Error('fakeError')
-//     res.send('hello, we are here again!')
-// })
-
-
-
 // connect to database
 mongoose.connect(MONGO_URL)
 .then(()=>{
