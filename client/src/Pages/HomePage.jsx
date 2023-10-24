@@ -59,11 +59,11 @@ export const HomePage = () => {
                     data-aos-once = "false"
                     className='items-center font-bold lg:text-5xl md:text-4xl text-3xl sm:p-5 p-2 flex flex-wrap'>
                     <span className='text-green-400 font-extrabold p-2 mr-2 shadow '>Welcome</span>
-                    to Admin Dashboard!
+                    to Exclusive Store!
                 </div>
                 <div className='p-5 flex items-center flex-wrap' data-aos="zoom-out-left">
                     <p className='flex items-center text-xl'>You can add, delete and create new product here.</p>
-                    <a href='#products' data-aos="flip-up" className='hover:underline underline-offset-2 cursor-pointer font-bold text-xl bg-green-400 shadow-lg text-white rounded p-1'>start now!</a>
+                    <a href='#products' data-aos="flip-up" className='hover:underline underline-offset-2 cursor-pointer font-bold text-xl bg-green-400 shadow-lg text-white rounded p-1'>shop now!</a>
                 </div>
             </div>
         </div>

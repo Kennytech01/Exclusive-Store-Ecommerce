@@ -1,4 +1,5 @@
 import React from 'react';
+import { AdminPage } from './Pages/AdminPage';
 import { HomePage } from './Pages/HomePage';
 import { NavBar } from './navBar';
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
@@ -16,6 +17,7 @@ export const App = () => {
   <BrowserRouter>
     <NavBar/>
     <Routes>
+      <Route index path='/admin-page' element={<AdminPage/>}/>
       <Route index path='/' element={<HomePage/>}/>
       <Route path='/createproduct' element={<CreateProduct/>}/>
       <Route path='/signin' element={<SignIn/>}/>

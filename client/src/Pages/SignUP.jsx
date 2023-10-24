@@ -5,12 +5,14 @@ import logo from '../assets/images/logo.png'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {toast} from 'react-toastify'
+import { useDispatch, useSelector } from 'react-redux';
+import { signInStart, signInSuccess, signInFaliure } from '../Redux/user/userSlice';
 
 export const SignUp = () => {
     const [formData, setFormData] = useState({})
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { loading, error} = useSelector((state) => state.user)
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.id]: e.target.value})
@@ -27,8 +29,7 @@ export const SignUp = () => {
     const handleSubmit = async (e)=>{
      e.preventDefault()
      try {
-        setLoading(true)
-        setError(false)
+        dispatch(signInStart())
         const response = await fetch('/api/auth/signup', {
             method: 'POST',
             headers: {
@@ -37,20 +38,18 @@ export const SignUp = () => {
             body: JSON.stringify(formData)
         });
         const data = await response.json()
-        console.log(data)
-        toast.success(`${formData.username} account created successfully!`)
-        setLoading(false)
-
+        // console.log(data)
+        
         if(data.success === false){  //check for error
-            setError(true)
+            dispatch(signInFaliure(data))
             return
         }
-        // toast.success(`${response.data.username} have logged in successfully`)
+        // toast.success(`${formData.username} account created successfully!`)
+        dispatch(signInSuccess(data))
         navigate('/signin')
 
      } catch (error) {
-        setLoading(false)
-        setError(true)
+        dispatch(signInFaliure(error))
      }
     }
 

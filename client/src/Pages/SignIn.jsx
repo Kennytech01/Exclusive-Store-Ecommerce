@@ -3,12 +3,15 @@ import { Link, useNavigate } from 'react-router-dom'
 import {MdKeyboardDoubleArrowLeft} from 'react-icons/md'
 import logo from '../assets/images/logo.png'
 import AOS from "aos";
+import { signInStart, signInSuccess, signInFaliure } from '../Redux/user/userSlice';
+import {useDispatch, useSelector} from 'react-redux';
+
 
 export const SignIn = () => {
     const [formData, setFormData] = useState({})
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
+    const {loading, error} = useSelector((state) => state.user)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.id]: e.target.value })
@@ -17,9 +20,7 @@ export const SignIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            setLoading(true)
-            setError(false)
-
+            dispatch(signInStart())
             const response = await fetch('/api/auth/signin', {
                 method: 'POST',
                 headers: {
@@ -28,17 +29,15 @@ export const SignIn = () => {
                 body: JSON.stringify(formData)
             });
             const data = await response.json()
-            console.log(data)
-            setLoading(false)
-
+            
             if(data.success === false){
-                setError(true)
+                dispatch(signInFaliure(data))
                 return
             }
+            dispatch(signInSuccess(data))
             navigate('/')
         } catch (error) {
-            setLoading(false)
-            setError(true)
+           dispatch(signInFaliure(error))
         }
     }
     
@@ -92,7 +91,7 @@ export const SignIn = () => {
                 </p>
                 <p className='text-red-700'>
                     {
-                        error && 'something went wrong!'
+                        error ? error.message || 'something went wrong!' : ""
                     }
                 </p>
             </div>
