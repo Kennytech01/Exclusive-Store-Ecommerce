@@ -69,7 +69,7 @@ export const Products = ({product, getProducts}) => {
         </div>
         <div className='w-full flex justify-between items-center px-2'>
           <Link to={`/editproduct/${product._id}`}>
-            <button className='bg-green-500 text-stone-100 px-2 p-1 rounded flex'>Edit</button>
+            <button className='bg-[#0D333f] text-stone-100 px-2 p-1 rounded flex'>Edit</button>
           </Link>
           <button onClick={()=> deleteProduct(product._id)} className='bg-red-500 text-stone-100 px-2 p-1 rounded'>Delete</button>
         </div>

@@ -8,7 +8,6 @@ import productRoute from './routes/productRoute.js'
 import authRoute from './routes/authRoute.js'
 
 
-// console.log(process.env)
 const PORT = process.env.PORT || 3000
 const MONGO_URL = process.env.MONGO_URL
 const FRONTEND = process.env.FRONTEND

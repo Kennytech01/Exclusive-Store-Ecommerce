@@ -57,19 +57,19 @@ export const HomePage = () => {
                     data-aos="fade-up" 
                     data-aos-duration='3000'
                     data-aos-once = "false"
-                    className='items-center font-bold lg:text-5xl md:text-4xl text-3xl sm:p-5 p-2 flex flex-wrap'>
-                    <span className='text-green-400 font-extrabold p-2 mr-2 shadow '>Welcome</span>
+                    className='items-center font-bold lg:text-5xl md:text-4xl text-3xl sm:p-5 p-2 flex flex-wrap text-[#0D333f]'>
+                    <span className='text-green-500 font-extrabold p-2 mr-2 shadow '>Welcome</span>
                     to Exclusive Store!
                 </div>
                 <div className='p-5 flex items-center flex-wrap' data-aos="zoom-out-left">
                     <p className='flex items-center text-xl'>You can add, delete and create new product here.</p>
-                    <a href='#products' data-aos="flip-up" className='hover:underline underline-offset-2 cursor-pointer font-bold text-xl bg-green-400 shadow-lg text-white rounded p-1'>shop now!</a>
+                    <a href='#products' data-aos="flip-up" className='hover:underline underline-offset-2 cursor-pointer font-bold text-xl bg-[#0D333f] shadow-lg text-white rounded p-1'>shop now!</a>
                 </div>
             </div>
         </div>
         {/* ... */}
         <div className=''>
-            <h1 data-aos="zoom-in" data-aos-duration="1500" className='p-4 font-bold text-center text-3xl text-green-500 '>
+            <h1 data-aos="zoom-in" data-aos-duration="1500" className='p-4 font-bold text-center text-3xl text-[#0D333f] '>
                 Products in Stock
             </h1>
             <div onClick={handleClick} className='p-2 md:p-5 md:mx-10 flex items-center cursor-pointer'>

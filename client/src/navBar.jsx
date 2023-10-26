@@ -1,17 +1,20 @@
 import React, { useState, useEffect} from 'react'
 import {LiaUserCircleSolid} from 'react-icons/lia'
-import { Link ,NavLink } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {HiMiniBars3BottomRight} from 'react-icons/hi2'
 import {LiaTimesSolid} from 'react-icons/lia'
 import {LuHome} from 'react-icons/lu'
 import logo from './assets/images/logo.png'
-
+import { useSelector } from 'react-redux'
 
 
 export const NavBar = () => {
   const [isActive, setIsActive] = useState(false)
   const [mobile , setMobile] = useState(false)
+  const {currentUser} = useSelector((state) => state.user)
+  const navigate = useNavigate()
 
+  
     useEffect( () => {
       window.addEventListener('scroll', () => {
           window.scrollY > 60 ? setIsActive(true) : setIsActive(false)
@@ -23,9 +26,15 @@ export const NavBar = () => {
       body.style.overflow = mobile? 'hidden' : 'auto';
     }, [mobile]);
 
+  const handleClick = () => {
+    currentUser? 
+      navigate('/signup')
+      : 
+      navigate('/signin')
+  }
 
   return (
-    <div className={`${isActive ? 'sticky top-0 bg-green-400 z-10' : 'bg-[#22C55E bg-white '}  flex justify-between items-center h-20 px-5  shadow-inner text-stone-800 `}>
+    <div className={`${isActive ? 'sticky top-0 bg-green-500 z-10' : 'bg-[#22C55E bg-white '}  flex justify-between items-center h-20 px-5  shadow-inner text-stone-800 `}>
         <Link to='/' className=''>
           <img onClick={()=> location.reload()} src={logo} alt="image" className='w-28 h-20 object-contain cursor-pointer' />
         </Link >
@@ -34,12 +43,20 @@ export const NavBar = () => {
         </div>
         <div className='md:flex items-center hidden'>
             <Link to={`/createproduct`}>
-                <button className='p-2 mx-2 text-green-400 font-bold rounded bg-white shadow '>Add New Product</button>
+                <button className='p-2 mx-2 bg-[#0D333f] font-bold rounded text-white shadow '>Add New Product</button>
             </Link>
-            <Link to='/signin' className={`flex items-center ml-5 font-bold text-stone-800 ${isActive && 'text-white font-bold'}`}>
-                Account 
-                <LiaUserCircleSolid className='mt-1'/>
-            </Link>
+            <div onClick={handleClick} className={`flex items-center ml-5 font-bold text-stone-800 cursor-pointer ${isActive && 'text-white font-bold'}`}>
+              { currentUser ? ( 
+                <div className='flex items-center'>
+                  <p className='pr-1'>Logout</p>
+                  <img src={currentUser.profilePicture} 
+                  alt="profileImage" className="w-7 h-7 rounded-full object-cover" /> 
+                </div>
+                ) 
+                :
+                <p>Account</p>
+              }
+            </div>
         </div>
         {/*mobile view */}
         <div className='flex flex-cols md:hidden '>
@@ -74,7 +91,6 @@ export const NavBar = () => {
               null
             }
         </div>
-
     </div>
   )
 }

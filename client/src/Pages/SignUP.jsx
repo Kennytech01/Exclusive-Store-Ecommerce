@@ -38,13 +38,11 @@ export const SignUp = () => {
             body: JSON.stringify(formData)
         });
         const data = await response.json()
-        // console.log(data)
         
         if(data.success === false){  //check for error
             dispatch(signInFaliure(data))
             return
         }
-        // toast.success(`${formData.username} account created successfully!`)
         dispatch(signInSuccess(data))
         navigate('/signin')
 
@@ -69,6 +67,11 @@ export const SignUp = () => {
                 </div>
                 <h1 className='font-bold text-xl p-3 text-cente'>Sign up! as Admin</h1>
                 <h4 className='sign text-lg p-2 text-center'>Get access to admins  content.</h4>
+                <p className='text-red-700'>
+                    {
+                        error ? error.message || 'something went wrong!' : ""
+                    }
+                </p>
                 <div className='mx-5'>
                     <form onSubmit={handleSubmit} >
                         <div className='p-2'>
@@ -110,15 +113,11 @@ export const SignUp = () => {
                         </div>
                     </form>
                 </div>
-                <div className='flex items-center gap-2'>
+                <div className='flex items-center p-5'>
                     <p className='pl-2'>Already have an account?</p>
                     <Link to={`/signin`}>
-                        <p className='hover:underline font-bold hover:font-extrabold text-green-500'>sign in</p>
+                        <p className='hover:underline font-bold hover:font-extrabold text-green-500 pl-1'>sign in</p>
                     </Link>
-                </div>
-                    {/* error message */}
-                <div className='p-2 text-start'>
-                    <p className='text-red-700 '>{error && 'something went wrong!...'}</p>
                 </div>
             </div>
         </div>

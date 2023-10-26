@@ -5,7 +5,7 @@ import logo from '../assets/images/logo.png'
 import AOS from "aos";
 import { signInStart, signInSuccess, signInFaliure } from '../Redux/user/userSlice';
 import {useDispatch, useSelector} from 'react-redux';
-
+import { OAuth } from '../Component/OAuth';
 
 export const SignIn = () => {
     const [formData, setFormData] = useState({})
@@ -50,12 +50,17 @@ export const SignIn = () => {
                     <MdKeyboardDoubleArrowLeft size={30}/>
                 </button>
             </Link>
-            <div  data-aos-duration='1500' className='bg-white rounded-xl w-full text-center shadow-xl border'>
+            <div  data-aos-duration='1500' className='bg-white rounded-xl w-full text-center shadow-xl border mb-5'>
                 <div className='m-5 relative flex justify-center'>
                     <img src={logo} alt="image" className='w-28 h-20 object-contain cursor-pointer' />
                 </div>
                 <h1 className='font-bold text-xl p-5 text-cente'>Welcome Back!</h1>
                 <h4 className='sign text-lg p-2 text-center '>Sign in into your account for full access</h4>
+                <p className='text-red-700'>
+                    {
+                        error ? error.message || 'something went wrong!' : ""
+                    }
+                </p>
                 <div className='mx-5'>
                     <form onSubmit={handleSubmit} >
                         <div className='p-2'>
@@ -79,20 +84,16 @@ export const SignIn = () => {
                         <div  className='p-3 flex justify-center'>
                             <button
                                 disabled={loading}
-                                className='disabled:opacity-80 hover:opacity-95 w-full p-3 font-semibold rounded-full ease-out duration-500 transition-all bg-green-500 text-stone-100 '
+                                className='disabled:opacity-80 hover:opacity-90 w-full p-3 font-semibold rounded-full ease-out duration-500 transition-all bg-green-500 text-stone-100 '
                             >
                                 {loading? 'LOADING...' : 'SIGN IN'}
                             </button>
                         </div>
+                        <OAuth/>
                     </form>
                 </div>
                 <p className='p-5'>
                     Already have an account? <Link to='/signup' className='hover:underline text-green-500 font-bold'>signUp</Link>
-                </p>
-                <p className='text-red-700'>
-                    {
-                        error ? error.message || 'something went wrong!' : ""
-                    }
                 </p>
             </div>
         </div>
