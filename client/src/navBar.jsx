@@ -3,7 +3,7 @@ import {LiaUserCircleSolid} from 'react-icons/lia'
 import { Link, useNavigate } from 'react-router-dom'
 import {HiMiniBars3BottomRight} from 'react-icons/hi2'
 import {LiaTimesSolid} from 'react-icons/lia'
-import {LuHome} from 'react-icons/lu'
+import {LuHome, LuLayoutDashboard} from 'react-icons/lu'
 import logo from './assets/images/logo.png'
 import { useSelector } from 'react-redux'
 
@@ -61,7 +61,7 @@ export const NavBar = () => {
         {/*mobile view */}
         <div className='flex flex-cols md:hidden '>
             <span onClick={()=> setMobile(!mobile)} className='duration-300 transition-all relative z-40 cursor-pointer '>
-                {mobile? <LiaTimesSolid size={30} className='bg-stone-200 rounded-full p-2'/> : <HiMiniBars3BottomRight size={30} className='text-white'/>}
+                {mobile? <LiaTimesSolid size={30} className='bg-stone-200 rounded-full p-2'/> : <HiMiniBars3BottomRight size={30} className={ `${isActive ? 'text-white': 'text-[#0D333f]'} `}/>}
             </span>
             {/* mobile DropDown */}
             {
@@ -72,15 +72,19 @@ export const NavBar = () => {
                           <div  className={`flex flex-col justify-evenly h-40 `}>
                               <Link to={`/createproduct`} onClick={()=> setMobile(!mobile)}>
                                   <button
-                                    className='p-2 bg-green-400 font-bold rounded text-stone-50 shadow-lg'>
+                                    className='p-2 bg-green-600 hover:opacity-80 transition-all font-bold rounded text-stone-50 shadow-lg'>
                                       Add New Product
                                   </button>
                               </Link>
-                              <Link  to='/signin' onClick={()=> setMobile(!mobile)} className='flex items-center hover:text-green-400 hover:font-bold transition-all duration-300'>
+                              <Link  to='/signin' onClick={()=> setMobile(!mobile)} className='flex items-center hover:text-green-600 text-[#0D333f] transition-all duration-300'>
                                   Login 
                                   <LiaUserCircleSolid className='mt-1'/>
                               </Link >
-                              <Link to={`/`} onClick={()=> setMobile(!mobile)} className='flex items-center hover:text-green-400 hover:font-bold transition-all duration-300 '>
+                              <Link  to='/adminsignin' onClick={()=> setMobile(!mobile)} className='flex items-center hover:text-green-600 text-[#0D333f] transition-all duration-300'>
+                                  Admin Page 
+                                  <LuLayoutDashboard className='mt-1'/>
+                              </Link >
+                              <Link to={`/`} onClick={()=> setMobile(!mobile)} className='flex items-center hover:text-green-600 text-[#0D333f] transition-all duration-300 '>
                                 Take me Home <LuHome/>
                               </Link>  
                           </div>

@@ -4,7 +4,7 @@ import {FaTwitter, FaFacebookF, FaInstagram, FaGithub, FaLinkedinIn, FaWhatsapp}
 
 export const Footer = () => {
   return (
-    <div className='bg-black text-stone-100 flex justify-center items-center lg:mt-4 '>
+    <div className='bg-[#0D333f] text-stone-100 flex justify-center items-center lg:mt-4 '>
         <div className='flex flex-wrap items-center justify-between m-3 mb-20 md:mb-0 w-full'>
             {/* follow us  */}
             <div className='flex flex-col items-start justify-center m-2'>

@@ -8,7 +8,7 @@ import {toast} from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, signInFaliure } from '../Redux/user/userSlice';
 
-export const SignUp = () => {
+export const AdminSignup = () => {
     const [formData, setFormData] = useState({})
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -30,7 +30,7 @@ export const SignUp = () => {
      e.preventDefault()
      try {
         dispatch(signInStart())
-        const response = await fetch('/api/auth/signup', {
+        const response = await fetch('/api/auth/adminsignup', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -44,7 +44,7 @@ export const SignUp = () => {
             return
         }
         dispatch(signInSuccess(data))
-        navigate('/signin')
+        // navigate('/signin')
 
      } catch (error) {
         dispatch(signInFaliure(error))
@@ -65,8 +65,8 @@ export const SignUp = () => {
                 <div className='m-3 relative flex justify-center'>
                     <img src={logo} alt="image" className='w-28 h-16 object-contain cursor-pointer' />
                 </div>
-                <h1 className='font-bold text-xl p-3 text-cente'>Sign up!</h1>
-                <h4 className='sign text-lg p-2 text-center'>Get access to admins  content.</h4>
+                <h1 className='font-bold text-xl p-3 text-[#0D333f]'>Sign up! as Admin</h1>
+                <h4 className='sign text-lg p-2 text-center text-[#0D333f]'>Get access to admins content.</h4>
                 <p className='text-red-700'>
                     {
                         error ? error.message || 'something went wrong!' : ""
@@ -106,17 +106,17 @@ export const SignUp = () => {
                                 disabled={loading} 
                                 type="submit" 
                                 value='submit' 
-                                className='w-full p-3 font-semibold rounded-full hover:opacity-95 disabled:opacity-80 hover:font-bold transition-all ease-out duration-500 bg-green-500 text-stone-100'
+                                className='w-full p-3 font-semibold rounded-full hover:opacity-95 disabled:opacity-80 hover:font-bold transition-all ease-out duration-500 bg-green-600 text-stone-100'
                                 >
                                     {loading? 'LOADING...' : 'SIGN UP'}
                             </button>
                         </div>
                     </form>
                 </div>
-                <div className='flex items-center p-5'>
-                    <p className='pl-2'>Already have an account?</p>
-                    <Link to={`/signin`}>
-                        <p className='hover:underline font-bold hover:font-extrabold text-green-500 pl-1'>sign in</p>
+                <div className='flex items-center md:p-5 py-5'>
+                    <p className='pl-2 text-[#0D333f]'>Already have admin account?</p>
+                    <Link to={`/adminsignin`}>
+                        <p className='hover:underline font-bold hover:font-extrabold text-[#0D333f] pl-1'>sign in</p>
                     </Link>
                 </div>
             </div>

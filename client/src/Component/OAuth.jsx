@@ -37,7 +37,7 @@ export const OAuth = () => {
     }
 
   return (
-    <div onClick={handleGoogleClick}  className='text-green-500 mx-3 hover:bg-green-500 hover:text-white transition-all duration-200 rounded-full text-center gap-2'>
+    <div onClick={handleGoogleClick}  className='text-green-600 mx-3 hover:bg-green-600 hover:text-white transition-all duration-200 rounded-full text-center gap-2'>
         <button type='button' className='w-full p-3 hover:font-semibold'>CONTINUE WITH GOOGLE</button>
     </div>
   )

@@ -10,6 +10,8 @@ import { EditProduct } from './Pages/EditProduct';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Footer } from './Pages/Footer';
+import { AdminSignin } from './Pages/adminSignin';
+import { AdminSignup } from './Pages/adminSignup';
 
 export const App = () => {
   return (
@@ -22,6 +24,8 @@ export const App = () => {
       <Route path='/createproduct' element={<CreateProduct/>}/>
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/signup' element={<SignUp/>}/>
+      <Route path='/adminsignin' element={<AdminSignin/>}/>
+      <Route path='/adminsignup' element={<AdminSignup/>}/>
       <Route path='/editproduct/:id' element={<EditProduct/>}/>
     </Routes> 
     <Footer/>
