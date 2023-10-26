@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useState  } from 'react'
 import {TbCurrencyNaira} from 'react-icons/tb'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom' 
 import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'
 
 export const Products = ({product, getProducts}) => {
+  const {currentUser} = useSelector((state)=> state.user)
   
 // delete product from the dashboard
   const deleteProduct = async (id) => {
@@ -31,31 +33,14 @@ export const Products = ({product, getProducts}) => {
     }
   }
 
-  // modal display
-  // const productDetail = async (id) => {
-  //   const result  = await Swal.fire({
-  //     title: 'Sweet!',
-  //     text: 'Modal with a custom image.',
-  //     imageUrl: `${product.image}`,
-  //     imageWidth: 400,
-  //     imageHeight: 200,
-  //     imageAlt: 'image',
-  //     objectFit: 'cover'
-  //   })
-  //   try {
-  //     await axios.get(`http://localhost:3000/products/${id}`)
-
-  //   } catch (error) {
-  //     console.log(error.message)      
-  //   }
-  // }
-
+ 
   return (
       <div
         data-aos="fade-up" 
-        data-aos-duration="1500" 
-        className=' h-80 w-80 mx-h-96 min-w-96 flex justify-center items-center flex-col bg-white shadow'>
-        <div className='flex h-1/2 relative'>
+        data-aos-duration="1500"
+        className=' h-80 w-80 mx-h-96 min-w-96 flex justify-center items-center flex-col bg-white shadow'
+        >
+        <div className='flex h-1/2 w-full relative'>
           <span className='absolute right-2 bg-orange-400 text-white font-light rounded text-sm px-1'>{product.percentage}%</span>
           <img src={product.image} alt="" className='w-full object-contain' />
         </div>
@@ -67,11 +52,23 @@ export const Products = ({product, getProducts}) => {
           </p>
           <p className='flex items-center'><span className='text-stone-500 '>Avaliable:</span> {product.quantity.toLocaleString()}</p>
         </div>
-        <div className='w-full flex justify-between items-center px-2'>
-          <Link to={`/editproduct/${product._id}`}>
-            <button className='bg-[#0D333f] text-stone-100 px-2 p-1 rounded flex'>Edit</button>
-          </Link>
-          <button onClick={()=> deleteProduct(product._id)} className='bg-red-500 text-stone-100 px-2 p-1 rounded'>Delete</button>
+        <div>
+          {
+            currentUser? (
+              <div className='bg-[#0D333f] text-white px-3 p-2 rounded cursor-pointer hover:opacity-80 transition-all'>
+                <button>
+                  Add to cart
+                </button>
+              </div>
+            )
+            :
+            <div className='w-full flex justify-between items-center px-2'>
+              <Link to={`/editproduct/${product._id}`}>
+                <button className='bg-[#0D333f] text-stone-100 px-2 p-1 rounded flex'>Edit</button>
+              </Link>
+              <button onClick={()=> deleteProduct(product._id)} className='bg-red-500 text-stone-100 px-2 p-1 rounded'>Delete</button>
+            </div>
+          }
         </div>
       </div>
   )

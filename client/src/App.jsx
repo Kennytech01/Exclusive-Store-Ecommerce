@@ -1,7 +1,7 @@
 import React from 'react';
 import { AdminPage } from './Pages/AdminPage';
 import { HomePage } from './Pages/HomePage';
-import { NavBar } from './navBar';
+import { NavBar } from './Component/navBar';
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import { CreateProduct } from './Pages/CreateProduct';
 import { SignIn } from './Pages/SignIn';
@@ -9,9 +9,10 @@ import { SignUp } from './Pages/SignUP';
 import { EditProduct } from './Pages/EditProduct';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Footer } from './Pages/Footer';
+import { Footer } from './Component/Footer';
 import { AdminSignin } from './Pages/adminSignin';
 import { AdminSignup } from './Pages/adminSignup';
+// import { ProductModal } from './Component/ProductModal';
 
 export const App = () => {
   return (
@@ -27,6 +28,7 @@ export const App = () => {
       <Route path='/adminsignin' element={<AdminSignin/>}/>
       <Route path='/adminsignup' element={<AdminSignup/>}/>
       <Route path='/editproduct/:id' element={<EditProduct/>}/>
+      {/* <Route path='/product_modal/:id' element={<ProductModal/>}/> */}
     </Routes> 
     <Footer/>
   </BrowserRouter>

@@ -1,6 +1,6 @@
 import React, { useState , useEffect, useContext} from 'react'
 import axios from 'axios'
-import { Products } from '../Products'
+import { Products } from '../Component/Products'
 import background from '../assets/images/background.png'
 import AOS from "aos";
 import "aos/dist/aos.css";

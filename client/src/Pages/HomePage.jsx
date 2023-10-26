@@ -1,6 +1,6 @@
 import React, { useState , useEffect, useContext} from 'react'
 import axios from 'axios'
-import { Products } from '../Products'
+import { Products } from '../Component/Products'
 import background from '../assets/images/background.png'
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -48,9 +48,9 @@ export const HomePage = () => {
 
   return (
     <div className=''>
-        <div className=' flex items-center justify-start h-[40vh] md:h-[50vh] lg:h-[90vh] w-full relative bg-white' >
-            <div data-aos='fade-down' data-aos-easing='linear' className=' h-80 flex flex-col items-center absolute ld:right-4 -right-10 md:right-20 md:block transition-all duration-300'>
-                <img className='sm:object-cover object-contain h-full w-full object-center' src={background} alt="" />
+        <div className=' flex items-center justify-start h-[60vh] md:h-[80vh] lg:h-[90vh] w-full relative bg-white' >
+            <div data-aos='fade-down' data-aos-easing='linear' className='h-80 mx-auto max-w-full flex absolute ld:right-4 -right-10 md:right-20 md:block transition-all'>
+                <img className='sm:object-cover object-contain h-full w-full object-center blur-sm md:blur-none' src={background} alt="bg-image" />
             </div>
             <div className=' flex flex-col items-center'>
                 <div 
@@ -58,11 +58,11 @@ export const HomePage = () => {
                     data-aos-duration='3000'
                     data-aos-once = "false"
                     className='items-center font-bold lg:text-5xl md:text-4xl text-3xl sm:p-5 p-2 flex flex-wrap text-[#0D333f]'>
-                    <span className='text-green-500 font-extrabold p-2 mr-2 shadow '>Welcome</span>
+                    <span className='text-green-600 font-extrabold p-2 mr-2 shadow '>Welcome</span>
                     to Exclusive Store!
                 </div>
                 <div className='p-5 flex items-center flex-wrap' data-aos="zoom-out-left">
-                    <p className='flex items-center text-xl'>You can add, delete and create new product here.</p>
+                    <p className='flex items-center text-xl p-2'>You can add, delete and create new product here.</p>
                     <a href='#products' data-aos="flip-up" className='hover:underline underline-offset-2 cursor-pointer font-bold text-xl bg-[#0D333f] shadow-lg text-white rounded p-1'>shop now!</a>
                 </div>
             </div>

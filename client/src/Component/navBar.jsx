@@ -4,8 +4,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import {HiMiniBars3BottomRight} from 'react-icons/hi2'
 import {LiaTimesSolid} from 'react-icons/lia'
 import {LuHome, LuLayoutDashboard} from 'react-icons/lu'
-import logo from './assets/images/logo.png'
+import logo from '../assets/images/logo.png'
 import { useSelector } from 'react-redux'
+import {BsCart4} from 'react-icons/bs'
 
 
 export const NavBar = () => {
@@ -42,9 +43,21 @@ export const NavBar = () => {
           <input type="search" name="search" id="" placeholder='Type your search...' className=' bg-stone-100 w-full h-full px-2 rounded outline-none transition-all duration-1000' />
         </div>
         <div className='md:flex items-center hidden'>
-            <Link to={`/createproduct`}>
+            <div>
+              {
+                currentUser ?
+              <div className='relative cursor-pointer'>
+                <BsCart4 size={30}/>
+                <p className='absolute -top-3 -right-2 '>
+                  <span className=' bg-red-500 text-white rounded-full p-[0.18rem]'><span>20</span></span>
+                </p>
+              </div>
+              :
+              <Link to={`/createproduct`}>
                 <button className='p-2 mx-2 bg-[#0D333f] font-bold rounded text-white shadow '>Add New Product</button>
-            </Link>
+              </Link>
+              }
+            </div>
             <div onClick={handleClick} className={`flex items-center ml-5 font-bold text-stone-800 cursor-pointer ${isActive && 'text-white font-bold'}`}>
               { currentUser ? ( 
                 <div className='flex items-center'>
@@ -60,6 +73,17 @@ export const NavBar = () => {
         </div>
         {/*mobile view */}
         <div className='flex flex-cols md:hidden '>
+            <div className='mx-5'>
+              {
+                currentUser &&
+                  <div className='relative cursor-pointer'>
+                    <BsCart4 size={30}/>
+                    <p className='absolute -top-3 -right-2 '>
+                      <span className=' bg-red-500 text-white rounded-full p-[0.18rem]'><span>20</span></span>
+                    </p>
+                  </div>
+              }
+            </div>
             <span onClick={()=> setMobile(!mobile)} className='duration-300 transition-all relative z-40 cursor-pointer '>
                 {mobile? <LiaTimesSolid size={30} className='bg-stone-200 rounded-full p-2'/> : <HiMiniBars3BottomRight size={30} className={ `${isActive ? 'text-white': 'text-[#0D333f]'} `}/>}
             </span>
@@ -67,8 +91,8 @@ export const NavBar = () => {
             {
               mobile? (
                   <div className=''>
-                      <div onClick={()=> setMobile(!mobile)} className='bg-black/60 fixed w-full h-full left-0 right-0 top-0 z-20'></div>
-                      <div data-aos='fade-left' data-aos-duration='1500' className=' duration-200 ease-in transition-all z-[999] absolute sm:right-8 right-4  top-24 md:top-32  sm:w-1/2 w-4/5 py-2 px-5 mt-2 rounded-lg shadow-xl bg-stone-50'>
+                      <div onClick={()=> setMobile(!mobile)} className='bg-black/60 fixed w-full h-full left-0 right-0 top-0 z-20 backdrop-blur-md'></div>
+                      <div data-aos='fade-left' data-aos-duration='1500' className=' duration-200 ease-in transition-all z-[999] absolute sm:right-8 right-4  top-24 md:top-32  sm:w-1/2 w-4/5 py-2 px-5 mt-2 rounded-lg shadow-xl bg-stone-50 shadow'>
                           <div  className={`flex flex-col justify-evenly h-40 `}>
                               <Link to={`/createproduct`} onClick={()=> setMobile(!mobile)}>
                                   <button
@@ -80,7 +104,7 @@ export const NavBar = () => {
                                   Login 
                                   <LiaUserCircleSolid className='mt-1'/>
                               </Link >
-                              <Link  to='/adminsignin' onClick={()=> setMobile(!mobile)} className='flex items-center hover:text-green-600 text-[#0D333f] transition-all duration-300'>
+                              <Link  to='/adminpsignin' onClick={()=> setMobile(!mobile)} className='flex items-center hover:text-green-600 text-[#0D333f] transition-all duration-300'>
                                   Admin Page 
                                   <LuLayoutDashboard className='mt-1'/>
                               </Link >
