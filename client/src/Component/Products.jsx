@@ -1,11 +1,10 @@
 import axios from 'axios'
-import React, { useState  } from 'react'
+import React from 'react'
 import {TbCurrencyNaira} from 'react-icons/tb'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom' 
 import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'
-import { ProductDetail } from '../Component/ProductDetail'
 
 export const Products = ({product, getProducts}) => {
   const {currentUser} = useSelector((state)=> state.user)
@@ -36,30 +35,31 @@ export const Products = ({product, getProducts}) => {
 
  
   return (
-      <Link 
-        to={`/productdetail/`}
+      <div 
         data-aos="fade-up" 
         data-aos-duration="1500"
-        className='group h-[24rem] w-80 mx-h-96 min-w-96 flex justify-center items-center flex-col bg-white shadow'
+        className='group h-[24rem] w-80 min-w-96 flex justify-center items-center flex-col bg-white shadow'
       >
-        <div className='flex h-1/2 w-full relative'>
+        <Link to={`/product/${product._id}`} className='flex h-1/2 w-full relative'>
           <span className='absolute right-2 bg-orange-400 text-white font-light rounded text-sm px-1'>{product.percentage}%</span>
             <img src={product.image} alt="" className='w-full object-contain group-hover:cursor-pointer' />
-        </div>
-        <h1 className='font-bold p-2 capitalize flex flex-wrap'>{product.name}</h1>
-        <div className='flex items-center justify-between w-full p-2'>
-          <p className=' w-full flex items-center'>
-            <span className='flex items-center text-sm font-bold '><TbCurrencyNaira className='mt-1'/>{product.price.toLocaleString()}</span>
-            <span className='ml-2 line-through flex items-center text-[#f33f0df3] text-stone-400 text-sm '><TbCurrencyNaira className='mt-1'/>{product.oldprice.toLocaleString()}</span>
-          </p>
-          <p className='flex items-center'><span className='text-stone-500 '>Avaliable:</span> {product.quantity.toLocaleString()}</p>
-        </div>
-        <div>
+        </Link>
+        <Link to={`/product/${product._id}`} className='font-bold p-2 capitalize flex flex-wrap cursor-pointer'>{product.name}</Link>
+          <div className='flex items-center justify-between w-full p-2'>
+            <p className=' w-full flex items-center'>
+              <span className='flex items-center text-sm font-bold '><TbCurrencyNaira className='mt-1'/>{product.price.toLocaleString()}</span>
+              <span className='ml-2 line-through flex items-center text-[#f33f0df3] text-stone-400 text-sm '><TbCurrencyNaira className='mt-1'/>{product.oldprice.toLocaleString()}</span>
+            </p>
+            <p className='flex items-center'><span className='text-stone-500 '>Avaliable:</span> {product.quantity.toLocaleString()}</p>
+          </div>
+        <div className='w-full'>
           {
             currentUser? (
-              <button className='group-hover:cursor-pointer group-hover:bg-[#0D333f] border border-[#0D333f] text-[#0D333f] group-hover:text-white px-3 p-2 rounded hover:opacity-80 transition-all font-bold'>
+              <div className='justify-center flex mx-2'>
+                <button className='w-full group-hover:cursor-pointer group-hover:bg-[#0D333f] border border-[#0D333f] text-[#0D333f] group-hover:text-white px-3 p-2 rounded hover:opacity-80 transition-all font-bold'>
                   Add to cart
-              </button>
+                </button>
+              </div>
             )
             :
             <div className='w-full flex justify-between items-center px-2 '>
@@ -70,6 +70,6 @@ export const Products = ({product, getProducts}) => {
             </div>
           }
         </div>
-      </Link>
+      </div>
   )
 }

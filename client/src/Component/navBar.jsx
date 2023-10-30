@@ -50,7 +50,7 @@ export const NavBar = () => {
   }
 
   return (
-    <div className={`${isActive ? 'sticky top-0 bg-green-500 z-10' : 'bg-[#22C55E bg-white '}  flex justify-between items-center h-20 px-5  shadow-inner text-stone-800 `}>
+    <div className={`${isActive ? 'sticky top-0 bg-green-500 z-10' : 'bg-[#22C55E bg-white '}  flex justify-between items-center h-20 px-10  shadow-inner text-stone-800 `}>
         <Link to='/' className=''>
           <img onClick={()=> location.reload()} src={logo} alt="image" className='w-28 h-20 object-contain cursor-pointer' />
         </Link >
@@ -113,7 +113,7 @@ export const NavBar = () => {
                 <div className='flex items-center'>
                   {/* <p className='pr-1'>Logout</p> */}
                   <img src={currentUser.profilePicture} 
-                  alt="profileImage" className="w-7 h-7 rounded-full object-cover" /> 
+                  alt="profile" className="w-7 h-7 rounded-full object-cover" /> 
                 </div>
                 ) 
                 :
