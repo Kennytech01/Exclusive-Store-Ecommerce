@@ -17,7 +17,9 @@ export const NavBar = () => {
   const [isActive, setIsActive] = useState(false)
   const [mobile , setMobile] = useState(false)
   const {currentUser} = useSelector((state) => state.user)
+  const amount = useSelector((state) => state.product.amount)
   const navigate = useNavigate()
+  
 
   
     useEffect( () => {
@@ -34,7 +36,7 @@ export const NavBar = () => {
     //refresh AOS
     useEffect(() => {
       AOS.init({
-        duration: 2000
+        duration: 1500
       })    
     },[])
 
@@ -65,7 +67,7 @@ export const NavBar = () => {
                   <div onClick={handleMobile} className='cursor-pointer'>
                     <BsCart4 size={30} className='text-[#0D333f]'/>
                     <span className='absolute -top-3 -right-2 bg-red-500 text-white rounded-full p-2 text-sm flex justify-center items-center h-5 w-5 shadow-inner'>
-                      25
+                      {amount}
                     </span>
                   </div>   
                   <div>

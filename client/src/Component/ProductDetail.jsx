@@ -8,7 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import {FaTwitter, FaFacebookF, FaInstagram,FaWhatsapp} from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
-import { signInStart, signInFaliure, signInSuccess } from '../Redux/user/userSlice'
+import { signInStart, signInFaliure, signInSuccess } from '../Redux/features/userSlice'
 
 export const ProductDetail = () => {
     const [product, setProduct] = useState({})
@@ -40,9 +40,9 @@ export const ProductDetail = () => {
         
   return (
     <div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-        <Link to= '/' className='flex justify-center items-center m-3 group'>
+        <Link to= '/' className='flex items-center m-5 group'>
             <button 
-                className='p-3 border bg-white flex items-center justify-center font-semibold rounded-full group-hover:scale-110 ease-out duration-500'>
+                className='p-3  flex items-center justify-center font-semibold rounded-full group-hover:scale-110 ease-out duration-500'>
                 <MdKeyboardDoubleArrowLeft size={30}/>
             </button>
         </Link>
@@ -59,7 +59,7 @@ export const ProductDetail = () => {
                     </span>
                     <span>
                         <span className='text-stone-500'>Avaliable quantity:</span>
-                        {product?.quantity}
+                        {product?.quantity?.toLocaleString()}
                     </span>
                 </p>
                 <div className='p-5 py-1 rounded-lg flex my-4 items-center text-sm'>
@@ -67,8 +67,8 @@ export const ProductDetail = () => {
                     <span className='px-2 font-bold'>quantity ordered</span>
                     <BsPlusLg/>
                 </div>
-                <div className='py-5'>
-                    <button className='border border-[#0D333f] w-full p-4 rounded-lg font-bold hover:bg-[#0D333f] hover:text-white text-[#0D333f] transition-all text-xl'>Buy Now</button>
+                <div className='py-5 '>
+                    <button className='border border-[#0D333f] shadow w-full p-4 rounded-lg font-bold hover:bg-[#0D333f] hover:text-white text-[#0D333f] transition-all text-xl'>Buy Now</button>
                 </div>
                 <div className='flex flex-wrap text-[#0D333f]'>
                     <p className='m-2 hover:scale-110 ease-in duration-100 rounded-full p-2'>

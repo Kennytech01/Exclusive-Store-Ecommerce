@@ -37,7 +37,8 @@ export const Products = ({product, getProducts}) => {
   return (
       <div 
         data-aos="fade-up" 
-        data-aos-duration="1500"
+        data-aos-duration="1000"
+        data-aos-anchor-placement="top-center"
         className='group h-[24rem] w-80 min-w-96 flex justify-center items-center flex-col bg-white shadow'
       >
         <Link to={`/product/${product._id}`} className='flex h-1/2 w-full relative'>

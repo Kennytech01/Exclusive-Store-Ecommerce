@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import {MdKeyboardDoubleArrowLeft} from 'react-icons/md'
 import logo from '../assets/images/logo.png'
 import AOS from "aos";
-import { signInStart, signInSuccess, signInFaliure } from '../Redux/user/userSlice';
+import { signInStart, signInSuccess, signInFaliure } from '../Redux/features/userSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import { OAuth } from '../Component/OAuth';
 

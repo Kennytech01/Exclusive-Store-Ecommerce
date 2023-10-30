@@ -6,7 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import {toast} from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux';
-import { signInStart, signInSuccess, signInFaliure } from '../Redux/user/userSlice';
+import { signInStart, signInSuccess, signInFaliure } from '../Redux/features/userSlice';
 
 export const SignUp = () => {
     const [formData, setFormData] = useState({})
