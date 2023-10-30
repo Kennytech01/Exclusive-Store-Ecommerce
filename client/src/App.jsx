@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Footer } from './Component/Footer';
 import { AdminSignin } from './Pages/adminSignin';
 import { AdminSignup } from './Pages/adminSignup';
-// import { ProductModal } from './Component/ProductModal';
+import { ProductDetail } from './Component/ProductDetail';
 
 export const App = () => {
   return (
@@ -28,7 +28,7 @@ export const App = () => {
       <Route path='/adminsignin' element={<AdminSignin/>}/>
       <Route path='/adminsignup' element={<AdminSignup/>}/>
       <Route path='/editproduct/:id' element={<EditProduct/>}/>
-      {/* <Route path='/product_modal/:id' element={<ProductModal/>}/> */}
+      <Route path='/productdetail/:id' element={<ProductDetail/>} />
     </Routes> 
     <Footer/>
   </BrowserRouter>

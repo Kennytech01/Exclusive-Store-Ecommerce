@@ -78,7 +78,7 @@ export const EditProduct = () => {
      
   return (
     <div className='relative flex flex-col justify-center items-center min-h-screen'>
-        <div className='absolute -z-10 top-0 right-0 left-0 h-full bg-black/10'></div>
+        <div className='absolute -z-10 top-0 right-0 left-0 h-full bg-black/5'></div>
         <div onClick={()=> goHome()} className='flex justify-center items-center m-3 group'>
             <button 
                 className='p-3 border bg-white flex items-center justify-center font-semibold rounded-full group-hover:scale-110 ease-out duration-500'>
@@ -100,7 +100,7 @@ export const EditProduct = () => {
                             <div className='flex items-center justify-center'>
                                 <div className='p-5'>
                                     <label htmlFor="" className='p-2 font-bold'>Quantity</label>
-                                    <input type="number" value={result.quantity} onChange={(e) => setResult({...result, name: e.target.value})} placeholder='Enter avaliable quantity' className='p-2 outline-none bg-stone-100 w-full rounded' />
+                                    <input type="number" value={result.quantity} onChange={(e) => setResult({...result, quantity: e.target.value})} placeholder='Enter avaliable quantity' className='p-2 outline-none bg-stone-100 w-full rounded' />
                                 </div>
                                 <div className='p-5'>
                                     <label htmlFor="" className='p-2 font-bold'>Category</label>
