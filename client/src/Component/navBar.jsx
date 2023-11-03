@@ -17,7 +17,7 @@ export const NavBar = () => {
   const [isActive, setIsActive] = useState(false)
   const [mobile , setMobile] = useState(false)
   const {currentUser} = useSelector((state) => state.user)
-  const amount = useSelector((state) => state.product.amount)
+  const amount = useSelector((store) => store.cart.amount)
   const navigate = useNavigate()
   
 
@@ -42,9 +42,9 @@ export const NavBar = () => {
 
   const handleClick = () => {
     currentUser? 
-      navigate('/signup')
-      : 
       navigate('/signin')
+      : 
+      navigate('/signup')
   }
 
   const handleMobile =() =>{

@@ -1,4 +1,4 @@
-import React, { useState , useEffect, useContext} from 'react'
+import React, { useState , useEffect} from 'react'
 import axios from 'axios'
 import { Products } from '../Component/Products'
 import background from '../assets/images/background.png'
@@ -17,6 +17,7 @@ export const HomePage = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [toggle, setToggle] = useState(false)
     const {currentUser, loading, error} = useSelector((state) =>  state.user)
+    const cart = useSelector( (state) => state.cart.cart)
 
 
     //get products from api
@@ -46,7 +47,7 @@ export const HomePage = () => {
       })    
     },[])
     
-    // setToggle btn
+    // sort button
     const handleClick = () => {
         setToggle(!toggle)
         toggle?  products.reverse() : products.sort((a,b) => a.name.localeCompare(b.name))
@@ -123,12 +124,16 @@ export const HomePage = () => {
                 )
                 :
                 (
-                   <div className='grid xl:grid-cols-4  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
+                   <div className='grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
                         {
                             products.length > 0 ? (
-                                products.map((product, index) => {
+                                products.cart.map((product, index) => {
                                     return(
-                                        <Products key={index} product={product} getProducts={getProducts}/>
+                                        <Products 
+                                            key={index} 
+                                            product={product} 
+                                            getProducts={getProducts}
+                                        />
                                     )
                                 })
                             )

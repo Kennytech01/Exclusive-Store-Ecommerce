@@ -21,7 +21,7 @@ const ProductSchema = mongoose.Schema(
         },
         oldprice: {
             type: Number,
-            required: true,
+            required: false,
         },
         percentage: {
             type: Number,
@@ -30,6 +30,10 @@ const ProductSchema = mongoose.Schema(
         image: {
             type: String,
             required: false,
+        },
+        cartQuantity: {
+            type: Number,
+            required: true
         }
     },
     {

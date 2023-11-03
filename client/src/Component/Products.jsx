@@ -1,13 +1,15 @@
 import axios from 'axios'
 import React from 'react'
 import {TbCurrencyNaira} from 'react-icons/tb'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom' 
 import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'
+import { addToCart } from '../Redux/features/productSlice'
 
-export const Products = ({product, getProducts}) => {
+export const Products = ({product, cartQuantity = 0, getProducts}) => {
   const {currentUser} = useSelector((state)=> state.user)
+  const dispatch = useDispatch()
   
 // delete product from the dashboard
   const deleteProduct = async (id) => {
@@ -33,13 +35,16 @@ export const Products = ({product, getProducts}) => {
     }
   }
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product))
+  }
  
   return (
       <div 
         data-aos="fade-up" 
         data-aos-duration="1000"
         data-aos-anchor-placement="top-center"
-        className='group h-[24rem] w-80 min-w-96 flex justify-center items-center flex-col bg-white shadow'
+        className='group h-[24rem] sm:w-[24rem] flex justify-center items-center flex-col bg-white shadow-xl mx-2'
       >
         <Link to={`/product/${product._id}`} className='flex h-1/2 w-full relative'>
           <span className='absolute right-2 bg-orange-400 text-white font-light rounded text-sm px-1'>{product.percentage}%</span>
@@ -53,11 +58,12 @@ export const Products = ({product, getProducts}) => {
             </p>
             <p className='flex items-center'><span className='text-stone-500 '>Avaliable:</span> {product.quantity.toLocaleString()}</p>
           </div>
+          <p>{cartQuantity}</p>
         <div className='w-full'>
           {
             currentUser? (
               <div className='justify-center flex mx-2'>
-                <button className='w-full group-hover:cursor-pointer group-hover:bg-[#0D333f] border border-[#0D333f] text-[#0D333f] group-hover:text-white px-3 p-2 rounded hover:opacity-80 transition-all font-bold'>
+                <button onClick={()=> handleAddToCart(product)} className='w-full group-hover:cursor-pointer group-hover:bg-[#0D333f] border border-[#0D333f] text-[#0D333f] group-hover:text-white px-3 p-2 rounded hover:opacity-80 transition-all font-bold'>
                   Add to cart
                 </button>
               </div>

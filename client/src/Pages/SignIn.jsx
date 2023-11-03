@@ -84,7 +84,7 @@ export const SignIn = () => {
                         <div  className='p-3 flex justify-center'>
                             <button
                                 disabled={loading}
-                                className='disabled:opacity-80 hover:opacity-90 w-full p-3 font-semibold rounded-full ease-out duration-500 transition-all bg-green-500 text-stone-100 '
+                                className='disabled:opacity-80 hover:opacity-90 w-full p-3 font-semibold rounded-full ease-out duration-500 transition-all bg-[#0D333f] text-stone-100 '
                             >
                                 {loading? 'LOADING...' : 'SIGN IN'}
                             </button>
@@ -93,7 +93,7 @@ export const SignIn = () => {
                     </form>
                 </div>
                 <p className='p-5'>
-                    Already have an account? <Link to='/signup' className='hover:underline text-green-500 font-bold'>signUp</Link>
+                    Already have an account? <Link to='/signup' className='hover:underline text-green-600 font-bold'>signUp</Link>
                 </p>
             </div>
         </div>

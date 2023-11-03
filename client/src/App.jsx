@@ -25,7 +25,7 @@ export const App = () => {
       <Route path='/createproduct' element={<CreateProduct/>}/>
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/signup' element={<SignUp/>}/>
-      <Route path='/adminsignin' element={<AdminSignin/>}/>
+      {/* <Route path='/adminsignin' element={<AdminSignin/>}/> */}
       <Route path='/adminsignup' element={<AdminSignup/>}/>
       <Route path='/editproduct/:id' element={<EditProduct/>}/>
       <Route path='/product/:id' element={<ProductDetail/>} />

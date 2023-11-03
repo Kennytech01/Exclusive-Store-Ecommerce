@@ -66,7 +66,7 @@ export const SignUp = () => {
                     <img src={logo} alt="image" className='w-28 h-16 object-contain cursor-pointer' />
                 </div>
                 <h1 className='font-bold text-xl p-3 text-cente'>Sign up!</h1>
-                <h4 className='sign text-lg p-2 text-center'>Get access to admins  content.</h4>
+                <h4 className='sign text-lg p-2 text-center'>Get access to contents.</h4>
                 <p className='text-red-700'>
                     {
                         error ? error.message || 'something went wrong!' : ""
@@ -106,7 +106,7 @@ export const SignUp = () => {
                                 disabled={loading} 
                                 type="submit" 
                                 value='submit' 
-                                className='w-full p-3 font-semibold rounded-full hover:opacity-95 disabled:opacity-80 hover:font-bold transition-all ease-out duration-500 bg-green-500 text-stone-100'
+                                className='w-full p-3 font-semibold rounded-full hover:opacity-95 disabled:opacity-80 hover:font-bold transition-all ease-out duration-500 bg-[#0D333f] text-stone-100'
                                 >
                                     {loading? 'LOADING...' : 'SIGN UP'}
                             </button>
@@ -116,7 +116,7 @@ export const SignUp = () => {
                 <div className='flex items-center p-5'>
                     <p className='pl-2'>Already have an account?</p>
                     <Link to={`/signin`}>
-                        <p className='hover:underline font-bold hover:font-extrabold text-green-500 pl-1'>sign in</p>
+                        <p className='hover:underline font-bold hover:font-extrabold text-green-600 pl-1'>sign in</p>
                     </Link>
                 </div>
             </div>
